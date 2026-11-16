@@ -150,7 +150,7 @@ html.intro-lock, html.intro-lock body { overflow: hidden !important; }
 .logo-emblem .em-eye { animation: eyeGlow 5s ease-in-out infinite; }
 @keyframes eyeGlow { 50% { filter: drop-shadow(0 0 10px rgba(130, 170, 255, .9)); } }
 .logo {
-  position: relative; margin: 0; font-family: var(--deco); font-weight: 900; line-height: 1;
+  position: relative; margin: 0; font-family: var(--deco); font-weight: 900; line-height: 1.12;
   font-size: clamp(64px, 12.5vw, 196px); letter-spacing: .03em; white-space: nowrap;
   filter: drop-shadow(0 3px 0 #0b0b0e) drop-shadow(0 0 22px rgba(170, 190, 255, .22)) drop-shadow(0 18px 30px #000);
 }
@@ -158,10 +158,11 @@ html.intro-lock, html.intro-lock body { overflow: hidden !important; }
   display: inline-block;
   background: linear-gradient(180deg, #ffffff 0%, #e6e9ef 18%, #9da3ad 46%, #f7f9fc 52%, #6d727c 74%, #c3c8d1 92%, #8e939c 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, .25);
+  /* Schnörkel der Zierschrift ragen über den Glyphenrahmen hinaus: Malfläche vergrössern, Abstände unverändert lassen */
+  padding: .14em .18em .24em; margin: -.14em -.18em -.24em;
 }
 .logo::after {
-  content: attr(data-text); position: absolute; inset: 0; pointer-events: none; letter-spacing: inherit;
+  content: attr(data-text); position: absolute; top: -.14em; bottom: -.24em; left: -.18em; right: -.18em; padding: .14em .18em .24em; pointer-events: none; letter-spacing: inherit;
   background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, .95) 48%, rgba(200, 220, 255, .7) 52%, transparent 62%);
   background-size: 300% 100%; background-position: 120% 0;
   -webkit-background-clip: text; background-clip: text; color: transparent;

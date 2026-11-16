@@ -94,8 +94,8 @@
 
     run(onDone) {
       const el = $('#intro');
-      let seen = false; try { seen = sessionStorage.getItem('flagged.intro') === '1'; } catch (e) { }
-      if (!el || seen) { el && el.remove(); onDone && onDone(false); return; }
+      // läuft bei jedem Laden der Seite
+      if (!el) { onDone && onDone(false); return; }
       this.active = true; this.done = onDone;
       document.documentElement.classList.add('intro-lock');
       $('#intro-lines').innerHTML = LINES.map((t, i) => `<p class="il" data-i="${i}">${[...t].map((ch, k) => ch === ' ' ? ' ' : `<span style="--d:${k}">${ch}</span>`).join('')}</p>`).join('');
@@ -148,7 +148,6 @@
     finish(skip) {
       if (!this.active) return;
       this.active = false; this.skipped = true;
-      try { sessionStorage.setItem('flagged.intro', '1'); } catch (e) { }
       const el = $('#intro');
       if (skip) SND.fadeOut();
       el.classList.add('leave');
