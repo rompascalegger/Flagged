@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flagged – Webspiel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+<div id="orn" aria-hidden="true"><i class="o-l"></i><i class="o-r"></i><i class="o-t"></i><i class="o-b"></i></div>
+
+<!-- ===================== TITEL ===================== -->
+<section id="screen-title" class="screen">
+  <div class="title-bg"></div>
+  <div class="title-glow"></div>
+  <canvas id="smoke-back"></canvas>
+  <div class="logo-wrap">
+    <div class="logo-rune" aria-hidden="true">
+      <svg viewBox="0 0 400 400"><defs><path id="rp" d="M200,200 m-165,0 a165,165 0 1,1 330,0 a165,165 0 1,1 -330,0"/></defs>
+        <circle cx="200" cy="200" r="190" fill="none" stroke="rgba(220,226,240,.35)" stroke-width="1.5"/>
+        <circle cx="200" cy="200" r="178" fill="none" stroke="rgba(220,226,240,.18)" stroke-width="6" stroke-dasharray="2 10"/>
+        <circle cx="200" cy="200" r="150" fill="none" stroke="rgba(220,226,240,.25)" stroke-width="1"/>
+        <text font-family="Cinzel" font-size="15" fill="rgba(230,234,245,.55)" letter-spacing="7"><textPath href="#rp">ᚠ ᛚ ᚨ ᚷ ᚷ ᛖ ᛞ · TACTICAL · PVP · ᚦ ᚱ ᛟ ᚾ · CARDS · BOARD · HYBRID · ᛉ ᛊ ᛏ ᛒ ·</textPath></text>
+      </svg>
+    </div>
+    <div class="logo-emblem" aria-hidden="true">
+      <svg viewBox="0 0 240 230">
+        <defs>
+          <linearGradient id="silv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".45" stop-color="#9aa0aa"/><stop offset=".55" stop-color="#eef0f5"/><stop offset="1" stop-color="#4d5159"/></linearGradient>
+          <linearGradient id="silvH" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5d626b"/><stop offset=".5" stop-color="#f4f6fa"/><stop offset="1" stop-color="#5d626b"/></linearGradient>
+          <linearGradient id="fgold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset=".35" stop-color="#f0b43a"/><stop offset=".7" stop-color="#b06a12"/><stop offset="1" stop-color="#6a3a04"/></linearGradient>
+          <radialGradient id="shieldfill" cx=".5" cy=".45" r=".65"><stop offset="0" stop-color="#23262f"/><stop offset=".7" stop-color="#0b0c10"/><stop offset="1" stop-color="#030304"/></radialGradient>
+          <radialGradient id="iris"><stop offset="0" stop-color="#03050a"/><stop offset=".34" stop-color="#03050a"/><stop offset=".4" stop-color="#5f86d6"/><stop offset=".7" stop-color="#22406f"/><stop offset="1" stop-color="#0a0f1c"/></radialGradient>
+          <radialGradient id="eyeglow"><stop offset="0" stop-color="rgba(120,160,255,.55)"/><stop offset="1" stop-color="rgba(120,160,255,0)"/></radialGradient>
+        </defs>
+        <g class="em-swords">
+          <g transform="rotate(-34 120 150)"><path d="M116 14 L120 4 L124 14 L126 160 L114 160 Z" fill="url(#silvH)" stroke="#1a1c21" stroke-width="1.2"/><path d="M98 160 H142 L138 168 H102 Z" fill="url(#silv)" stroke="#1a1c21"/><rect x="116" y="168" width="8" height="26" fill="#3a2a1a" stroke="#120c06"/><circle cx="120" cy="198" r="6" fill="url(#silv)" stroke="#1a1c21"/></g>
+          <g transform="rotate(34 120 150)"><path d="M116 14 L120 4 L124 14 L126 160 L114 160 Z" fill="url(#silvH)" stroke="#1a1c21" stroke-width="1.2"/><path d="M98 160 H142 L138 168 H102 Z" fill="url(#silv)" stroke="#1a1c21"/><rect x="116" y="168" width="8" height="26" fill="#3a2a1a" stroke="#120c06"/><circle cx="120" cy="198" r="6" fill="url(#silv)" stroke="#1a1c21"/></g>
+        </g>
+        <g class="em-flag"><path d="M120 2 V70" stroke="url(#silvH)" stroke-width="5" stroke-linecap="round"/><circle cx="120" cy="4" r="4.5" fill="url(#silv)"/>
+          <path class="em-cloth" d="M123 8 C140 0 156 18 176 10 C188 5 200 7 212 12 L198 27 L212 42 C200 38 190 38 178 42 C156 50 140 32 123 40 Z" fill="url(#fgold)" stroke="#4a2a04" stroke-width="1.4"/>
+          <path class="em-cloth" d="M140 18 L146 26 L156 24 L150 32 L154 40" fill="none" stroke="#7a3d06" stroke-width="1.6" opacity=".7"/></g>
+        <path d="M120 46 L178 66 L190 60 L186 76 L186 120 C186 162 156 192 120 210 C84 192 54 162 54 120 L54 76 L50 60 L62 66 Z" fill="url(#shieldfill)" stroke="url(#silv)" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M120 58 L174 76 L174 120 C174 156 150 182 120 197 C90 182 66 156 66 120 L66 76 Z" fill="none" stroke="rgba(230,234,242,.35)" stroke-width="1.4"/>
+        <path d="M120 64 V80 M120 176 V190 M80 128 H92 M148 128 H160" stroke="rgba(230,234,242,.4)" stroke-width="1.2"/>
+        <g class="em-eye">
+          <circle cx="120" cy="128" r="44" fill="url(#eyeglow)"/>
+          <path d="M78 128 C98 102 142 102 162 128 C142 154 98 154 78 128 Z" fill="#d6dce7" stroke="#fbfcff" stroke-width="1.8"/>
+          <circle cx="120" cy="128" r="19" fill="url(#iris)"/><circle cx="120" cy="128" r="7.5" fill="#020306"/>
+          <circle cx="126" cy="121" r="4" fill="#fff" opacity=".92"/>
+          <path d="M70 128 C92 92 148 92 170 128 M70 128 C92 164 148 164 170 128" fill="none" stroke="url(#silv)" stroke-width="2.4"/>
+          <path d="M120 88 L114 100 H126 Z M120 168 L114 156 H126 Z" fill="url(#silv)"/>
+        </g>
+      </svg>
+    </div>
+    <h1 id="logo-word" class="logo" aria-label="Flagged"></h1>
+    <div class="logo-sub"><i></i>Tactical PvP TCG &amp; Board Game Hybrid<i></i></div>
+  </div>
+  <canvas id="smoke-front"></canvas>
+  <nav class="menu">
+    <button class="btn gold big" data-nav="setup">In die Schlacht</button>
+    <button class="btn big" data-nav="puzzles">Tägliches Rätsel</button>
+    <div class="menu-row"><button class="btn" data-nav="rules">Regeln</button><button class="btn" data-nav="cards">Kartenkompendium</button></div>
+    <div id="trophies"></div>
+  </nav>
+  <div class="title-foot">Webumsetzung des Regelbuchs · 1 gegen 1 auf dem 8×8-Feld</div>
+  <button class="btn small ghost music-btn title-music" title="Musik an/aus">♫ Musik</button>
+  <div class="music-hint">Klicke irgendwo, um die Musik zu erwecken</div>
+</section>
+
+<!-- ===================== SETUP ===================== -->
+<section id="screen-setup" class="screen">
+  <div class="setup-wrap">
+    <header class="sh"><button class="btn small ghost" data-nav="title">‹ Zurück</button><h2>Wähle deine Schlacht</h2><span></span></header>
+    <h3 class="sec">Dein Held</h3>
+    <div id="pick-me" class="pick-heroes"></div>
+    <div class="setup-cols">
+      <div><h3 class="sec">Dein Gegner</h3><div id="pick-op" class="pick-op"></div></div>
+      <div><h3 class="sec">Schwierigkeit</h3><div id="pick-lvl" class="pick-lvl"></div></div>
+    </div>
+    <div class="setup-go"><div id="setup-summary"></div><button class="btn gold big" data-nav="start">In die Schlacht ziehen</button></div>
+  </div>
+</section>
+
+<!-- ===================== SPIEL ===================== -->
+<section id="screen-game" class="screen">
+  <canvas id="smoke-game"></canvas>
+  <header class="topbar">
+    <button class="btn small ghost" data-nav="menu">☰ Menü</button>
+    <div class="tb-logo">FLAGGED</div>
+    <div id="turn-ind" class="turn-ind"></div>
+    <button class="btn small ghost music-btn" title="Musik an/aus">♫ Musik</button>
+    <button id="sound-btn" class="btn small ghost" title="Effekte an/aus">♪ Effekte</button>
+  </header>
+  <div id="pz-bar"></div>
+  <aside id="panel-left" class="side"><div class="pbody"></div><div class="logbox"><div class="lh">Chronik</div><div id="log"></div></div></aside>
+  <main class="center">
+    <div id="opp-hand" class="opp-hand"></div>
+    <div class="board-frame">
+      <div class="coords top"></div><div class="coords bottom"></div><div class="coords left"></div><div class="coords right"></div>
+      <div id="flag-top" class="flagpost top"><span>Gegnerische Flagge</span></div>
+      <div id="flag-bottom" class="flagpost bottom"><span>Deine Flagge</span></div>
+      <div id="board"><canvas class="board-art"></canvas></div>
+      <div id="board-prompt" class="board-prompt"></div>
+    </div>
+    <div id="my-hand" class="my-hand"></div>
+  </main>
+  <aside id="panel-right" class="side"><div class="pbody"></div></aside>
+</section>
+
+<!-- ===================== RÄTSEL-KALENDER ===================== -->
+<section id="screen-puzzles" class="screen">
+  <div class="setup-wrap">
+    <header class="sh"><button class="btn small ghost" data-nav="title">‹ Zurück</button><h2>Tägliche Rätsel</h2><span></span></header>
+    <p class="pz-intro">Jeden Tag ein neues Rätsel: Eine feste Stellung, vorgegebene Handkarten – und genau ein Zug, um es zu lösen.</p>
+    <div id="cal" class="cal"></div>
+  </div>
+</section>
+
+<!-- ===================== OVERLAYS ===================== -->
+<div id="played" class="played"></div>
+<div id="announce" class="announce"></div>
+<div id="coin" class="coin"></div>
+<div id="modal" class="modal"></div>
+<div id="zoom" class="zoom"></div>
+<div id="toasts"></div>
+<div id="tip" class="tip"></div>
+
+<div id="compendium" class="sheet">
+  <div class="sheet-box">
+    <header class="sh"><h2>Kartenkompendium</h2><button class="btn small ghost" data-nav="cards-close">Schliessen ✕</button></header>
+    <div id="comp-filter" class="comp-filter"></div>
+    <div id="comp-grid" class="card-grid comp"></div>
+  </div>
+</div>
+
+<div id="rules" class="sheet">
+  <div class="sheet-box rules">
+    <header class="sh"><h2>Regelbuch</h2><button class="btn small ghost" data-nav="rules-close">Schliessen ✕</button></header>
+    <div class="rules-cols">
+      <article>
+        <h3>Ziel des Spiels</h3>
+        <p>Erbeute die gegnerische Flagge und bringe sie an deinen eigenen Rand. <b>2 Flaggenpunkte</b> gewinnen. Wird eine Heldenfigur <b>6-mal geschnappt</b>, hat ihr Spieler verloren.</p>
+        <h3>Setup</h3>
+        <p>Gespielt wird auf dem 8×8-Brett. Startpositionen: <b>D1</b> (du) und <b>E8</b> (Gegner). Jeder hat 10 Wände, eine Heldenkarte und ein Deck mit 40 Karten. Der Zauberer setzt zu Spielbeginn 2 Portale auf dieselbe horizontale Linie, die Assassine beschwört ihren Schattenklon auf der Startlinie. Danach setzen beide abwechselnd je 1 Wand in der eigenen Hälfte. Beide starten mit 2 Handkarten.</p>
+        <h3>Start</h3>
+        <p>Der Spieler auf D1 beginnt und darf in seinem ersten Zug <b>keine Karte</b> spielen. In der ersten Runde dürfen Wände nur in der eigenen Spielfeldhälfte bis zur Mittellinie gesetzt werden.</p>
+        <h3>Dein Zug</h3>
+        <p>Zu Beginn ziehst du automatisch 1 Karte. Danach – optional und in beliebiger Reihenfolge, auch aufgeteilt:</p>
+        <ul><li><b>bis zu 2 Felder</b> in gerade Richtungen bewegen</li><li><b>1 Karte</b> spielen</li><li><b>bis zu 2 Wände</b> setzen</li><li>Heldenfähigkeit nutzen · Konterkarten spielen, wenn ihre Bedingung erfüllt ist</li></ul>
+        <h3>Schnappen</h3>
+        <p>Betritt deine Figur ein Feld mit einer gegnerischen Figur, wird diese geschnappt. Eine geschnappte Heldenfigur verliert die Flagge, ihr Spieler setzt für das n-te Schnappen n Züge aus und bringt sie danach an seinem eigenen Rand wieder ins Spiel (Wiedergeburt – alle Effekte enden).</p>
+        <h3>Flagge &amp; Sieg</h3>
+        <p>Betritt deine Heldenfigur den gegnerischen Rand, nimmt sie die Flagge automatisch auf. Bringst du sie an deinen eigenen Rand, erhältst du 1 Punkt.</p>
+      </article>
+      <article>
+        <h3>Wände</h3>
+        <p>Wände stehen zwischen zwei Feldern und blockieren Bewegung und Sichtlinie. Diagonale Wege werden erst durch <b>zwei</b> Wände blockiert. Es muss immer ein Weg existieren – Wandstrukturen dürfen nie ein Gebiet vollständig abschliessen. Zerstörte Wände bleiben zerstört.</p>
+        <h3>Umkreis &amp; Entfernung</h3>
+        <p>Umkreis und Entfernung werden nach dem Chebyshev-System gezählt: Alle 8 umliegenden Felder haben Entfernung 1 und gelten als angrenzend – auch durch Wände.</p>
+        <h3>Bewegung &amp; Teleportation</h3>
+        <p>Bewegung erfolgt Feld für Feld. Teleportation versetzt direkt und ignoriert Wände. Beides gilt als Betreten eines Feldes. Figuren können nicht durch andere Figuren ziehen und blockieren die Sichtlinie.</p>
+        <h3>Konterkarten &amp; Kette</h3>
+        <p>Konterkarten (⚡) dürfen unmittelbar nach Erfüllung ihrer Bedingung gespielt werden – auch im gegnerischen Zug – und zählen nicht als gespielte Karte. Antworten werden als Kette in umgekehrter Reihenfolge aufgelöst.</p>
+        <h3>Fallen</h3>
+        <p>Fallen werden verdeckt gelegt; der Gegner sieht weder Feld noch Kartentyp. Betritt eine gegnerische Figur das Feld, wird die Falle aufgedeckt und ausgelöst.</p>
+        <h3>Schattenklon</h3>
+        <p>Der Klon bewegt sich wie die Heldenfigur, kann Karten spielen und Portale nutzen, aber weder Flaggen tragen noch schnappen. Welche Figur die echte ist, bleibt geheim, bis es bewiesen werden muss.</p>
+        <h3>Ausserdem</h3>
+        <p>Handlimit 5 Karten. Einmalig nach dem ersten Ziehen: Mulligan (Hand zurückmischen, 1 Karte weniger ziehen). Ist das Deck leer, wird der Ablagestapel neu gemischt – Ultimate-Karten bleiben liegen.</p>
+      </article>
+      <article>
+        <h3>Helden</h3>
+        <p><b>Ritter:</b> 1× pro Leben +1 Karte spielen, +1 Karte ziehen oder +1 Feld gerade bewegen.<br><b>Waldläufer (Jäger):</b> 1× pro Leben das Deck nach 1 Karte durchsuchen.<br><b>Zauberer (Magier):</b> 2 Portale – betrittst du eines, teleportierst du dich zum anderen.<br><b>Assassine:</b> Schattenklon zu Spielbeginn und bei Wiedergeburt.</p>
+        <h3>Symbole</h3>
+        <div id="rules-legend" class="legend"></div>
+        <h3>Auslegungen dieser Umsetzung</h3>
+        <p class="small">Sichtlinie verläuft gerade oder diagonal. „Antikonter“: Im laufenden Zug darf der Gegner keine Konterkarten mehr spielen. Wolfmodus: +1 Wand verschieben pro eigenem Zug und Schnappen im Umkreis 1 – auch durch Wände. Der Fährtenwolf kann schnappen. Blockstellung wählt 2 Felder angrenzend zu deiner Figur. Team-, Arena- und King-of-the-Hill-Modus sind nicht enthalten.</p>
+      </article>
+    </div>
+  </div>
+</div>
+
+<script src="js/icons.js?v=1"></script>
+<script src="js/cards.js?v=1"></script>
+<script src="js/engine.js?v=1"></script>
+<script src="js/ai.js?v=1"></script>
+<script src="js/boardart.js?v=1"></script>
+<script src="js/smoke.js?v=1"></script>
+<script src="js/ui.js?v=1"></script>
+<script src="js/music.js?v=1"></script>
+<script src="js/puzzles.js?v=1"></script>
+<script src="js/main.js?v=1"></script>
+</body>
+</html>
