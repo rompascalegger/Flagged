@@ -49,24 +49,28 @@
         this.unlockedAt = Date.now();
         document.body.classList.add('audio-ok');
         window.FX_SFX.ac();
-        if (MU.on) MU.play(this.musicMode || 'title');
+        // während des Intros übernimmt das Intro den Ton; die Musik folgt danach
+        if (MU.on && !(window.FX_INTRO && window.FX_INTRO.active)) MU.play(this.musicMode || 'title');
         window.removeEventListener('pointerdown', unlock, true); window.removeEventListener('keydown', unlock, true);
       };
       window.addEventListener('pointerdown', unlock, true); window.addEventListener('keydown', unlock, true);
       this.buildSetup();
       this.buildRules();
       this.show('title');
-      this.intro();
       this.renderTrophies();
+      window.FX_INTRO.run((fromIntro) => {
+        this.intro(fromIntro !== false);
+        if (document.body.classList.contains('audio-ok') && MU.on) MU.play(this.musicMode || 'title');
+      });
     },
-    intro() {
+    intro(afterEyeIntro) {
       const t = $('#screen-title');
       t.classList.remove('intro-done');
       t.classList.add('intro');
       setTimeout(() => {
         const r = $('#logo-word').getBoundingClientRect();
         this.smokeBack.burst(r.left + r.width / 2, r.top + r.height / 2, 90, 3.4);
-        window.FX_SFX.play('boss');
+        if (!afterEyeIntro) window.FX_SFX.play('boss');
       }, 350);
       setTimeout(() => t.classList.add('intro-done'), 2600);
     },

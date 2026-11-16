@@ -7,10 +7,55 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=1">
+<link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 <div id="orn" aria-hidden="true"><i class="o-l"></i><i class="o-r"></i><i class="o-t"></i><i class="o-b"></i></div>
+
+<!-- ===================== INTRO ===================== -->
+<div id="intro" class="intro-ov" tabindex="0">
+  <canvas id="intro-canvas"></canvas>
+  <div class="intro-rays"></div>
+  <div class="intro-eye">
+    <svg viewBox="0 0 600 300" aria-hidden="true">
+      <defs>
+        <!-- Kopie des Auges aus dem Logo-Wappen (Koordinaten ×5.8 um die Augenmitte) -->
+        <radialGradient id="ie-sclera" cx=".5" cy=".5" r=".55"><stop offset="0" stop-color="#e6ebf3"/><stop offset=".7" stop-color="#d0d6e1"/><stop offset="1" stop-color="#9aa2b2"/></radialGradient>
+        <radialGradient id="ie-iris"><stop offset="0" stop-color="#03050a"/><stop offset=".34" stop-color="#03050a"/><stop offset=".4" stop-color="#5f86d6"/><stop offset=".7" stop-color="#22406f"/><stop offset="1" stop-color="#0a0f1c"/></radialGradient>
+        <radialGradient id="ie-glow"><stop offset="0" stop-color="rgba(120,160,255,.55)"/><stop offset="1" stop-color="rgba(120,160,255,0)"/></radialGradient>
+        <linearGradient id="ie-silv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".45" stop-color="#9aa0aa"/><stop offset=".55" stop-color="#eef0f5"/><stop offset="1" stop-color="#4d5159"/></linearGradient>
+        <linearGradient id="ie-line" x1="0" x2="1"><stop offset="0" stop-color="#e8eefc"/><stop offset=".5" stop-color="#ffffff"/><stop offset="1" stop-color="#e8eefc"/></linearGradient>
+        <clipPath id="ie-clip"><path class="ie-lidclip" d="M56.4 150 C172.4 -0.8 427.6 -0.8 543.6 150 C427.6 300.8 172.4 300.8 56.4 150 Z"/></clipPath>
+        <path id="ie-ring" d="M300,150 m-305,0 a305,305 0 1,1 610,0 a305,305 0 1,1 -610,0"/>
+      </defs>
+      <circle class="ie-halo" cx="300" cy="150" r="255" fill="url(#ie-glow)"/>
+      <g class="ie-runes"><text font-family="Cinzel" font-size="19" letter-spacing="11" fill="rgba(200,215,245,.7)"><textPath href="#ie-ring">ᚠ ᛚ ᚨ ᚷ ᚷ ᛖ ᛞ · ᛟ ᚲ ᚢ ᛚ ᚢ ᛊ · ᚾ ᛖ ᚹ ᛖ ᚱ · ᛞ ᚱ ᛖ ᚨ ᛗ ᛊ · ᚠ ᛚ ᚨ ᚷ ᚷ ᛖ ᛞ · ᛟ ᚲ ᚢ ᛚ ᚢ ᛊ · ᚾ ᛖ ᚹ ᛖ ᚱ ·</textPath></text></g>
+      <g clip-path="url(#ie-clip)">
+        <rect width="600" height="300" fill="url(#ie-sclera)"/>
+        <g class="ie-irisg">
+          <circle cx="300" cy="150" r="110" fill="url(#ie-iris)"/>
+          <circle cx="300" cy="150" r="80" fill="none" stroke="rgba(200,225,255,.13)" stroke-width="52" stroke-dasharray="1.2 3.8"/>
+          <circle class="ie-pupil" cx="300" cy="150" r="43.5" fill="#020306"/>
+          <circle cx="334.8" cy="109.4" r="23" fill="#fff" opacity=".92"/>
+        </g>
+      </g>
+      <path class="ie-lid up" d="M56.4 150 C172.4 -0.8 427.6 -0.8 543.6 150" fill="none" stroke="url(#ie-line)" stroke-width="4"/>
+      <path class="ie-lid down" d="M56.4 150 C172.4 300.8 427.6 300.8 543.6 150" fill="none" stroke="url(#ie-line)" stroke-width="4"/>
+      <path class="ie-lid arc" d="M10 150 C137.6 -58.8 462.4 -58.8 590 150" fill="none" stroke="url(#ie-silv)" stroke-width="7"/>
+      <path class="ie-lid arc" d="M10 150 C137.6 358.8 462.4 358.8 590 150" fill="none" stroke="url(#ie-silv)" stroke-width="7"/>
+      <path class="ie-spike" d="M300 -82 L265.2 -12.4 H334.8 Z M300 382 L265.2 312.4 H334.8 Z" fill="url(#ie-silv)"/>
+    </svg>
+  </div>
+  <div id="intro-lines" class="intro-lines"></div>
+  <div id="intro-gate" class="intro-gate">
+    <div class="ig-eye"><i></i></div>
+    <div class="ig-text">Berühre das Auge</div>
+    <div class="ig-sub">Mit Ton erleben</div>
+  </div>
+  <button id="intro-skip" class="intro-skip">Überspringen ›</button>
+  <div class="intro-grain"></div>
+  <div class="intro-flash"></div>
+</div>
 
 <!-- ===================== TITEL ===================== -->
 <section id="screen-title" class="screen">
@@ -184,15 +229,16 @@
   </div>
 </div>
 
-<script src="js/icons.js?v=1"></script>
-<script src="js/cards.js?v=1"></script>
-<script src="js/engine.js?v=1"></script>
-<script src="js/ai.js?v=1"></script>
-<script src="js/boardart.js?v=1"></script>
-<script src="js/smoke.js?v=1"></script>
-<script src="js/ui.js?v=1"></script>
-<script src="js/music.js?v=1"></script>
-<script src="js/puzzles.js?v=1"></script>
-<script src="js/main.js?v=1"></script>
+<script src="js/icons.js?v=4"></script>
+<script src="js/cards.js?v=4"></script>
+<script src="js/engine.js?v=4"></script>
+<script src="js/ai.js?v=4"></script>
+<script src="js/boardart.js?v=4"></script>
+<script src="js/smoke.js?v=4"></script>
+<script src="js/ui.js?v=4"></script>
+<script src="js/music.js?v=4"></script>
+<script src="js/puzzles.js?v=4"></script>
+<script src="js/intro.js?v=4"></script>
+<script src="js/main.js?v=4"></script>
 </body>
 </html>
