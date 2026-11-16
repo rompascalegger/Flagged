@@ -51,7 +51,8 @@
     ctx: null, on: true, vol: 0.55, mode: null, playing: false, timer: 0,
     nextBar: 0, sec: 0, bar: 0, song: null, nodes: [],
 
-    init() { try { this.on = localStorage.getItem('flagged.music') !== 'off'; } catch (e) { } },
+    // Musik ist bei jedem Laden an; der Musik-Knopf schaltet sie für die laufende Sitzung ab
+    init() { this.on = true; try { localStorage.removeItem('flagged.music'); } catch (e) { } },
     setup() {
       if (this.ctx) return true;
       const a = window.FX_SFX && window.FX_SFX.ac();
@@ -313,7 +314,6 @@
     },
     toggle() {
       this.on = !this.on;
-      try { localStorage.setItem('flagged.music', this.on ? 'on' : 'off'); } catch (e) { }
       if (this.on) { const m = this.mode || 'title'; this.mode = null; this.play(m); } else this.stop();
       return this.on;
     }

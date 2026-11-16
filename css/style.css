@@ -69,7 +69,7 @@ body:has(#screen-title.active) #orn { opacity: 0; }
 /* ---------- Intro „Das Auge erwacht“ ---------- */
 .intro-ov { position: fixed; inset: 0; z-index: 200; background: radial-gradient(ellipse at 50% 50%, #07080d, #000 70%); display: none; overflow: hidden; outline: none; cursor: default; }
 .intro-ov.show { display: block; }
-.intro-ov.gate { cursor: pointer; }
+.intro-ov.gate { cursor: default; }
 .intro-ov.leave { animation: introLeave 1.4s ease-in forwards; pointer-events: none; }
 @keyframes introLeave { 0% { opacity: 1; } 100% { opacity: 0; filter: blur(6px); } }
 #intro-canvas { position: absolute; inset: 0; width: 100%; height: 100%; mix-blend-mode: screen; opacity: .9; }
@@ -78,7 +78,18 @@ body:has(#screen-title.active) #orn { opacity: 0; }
 @keyframes grain { 0% { transform: translate(0, 0); } 25% { transform: translate(-3%, 2%); } 50% { transform: translate(2%, -3%); } 75% { transform: translate(-2%, -1%); } 100% { transform: translate(1%, 3%); } }
 .intro-ov::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 50%, transparent 35%, rgba(0, 0, 0, .85) 85%); }
 /* Eingangstor */
-.intro-gate { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 22px; opacity: 0; transition: opacity 1.2s; pointer-events: none; z-index: 3; }
+.intro-gate { position: absolute; left: 50%; top: calc(50% + min(15vw, 190px)); transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 14px; opacity: 0; transition: opacity 1.2s; pointer-events: none; z-index: 3; white-space: nowrap; }
+/* Tor: das geschlossene Logo-Auge ist der einzige Startknopf */
+.intro-ov.gate .intro-eye { opacity: 1; transform: translate(-50%, -50%) scale(.92); cursor: pointer; animation: fadeIn 2.4s; }
+.intro-ov.gate .ie-lid { animation: lidTremble 2.6s ease-in-out infinite; }
+.intro-ov.gate .ie-halo { opacity: .45; transition: opacity .5s; }
+.intro-ov.gate .intro-eye:hover .ie-lid { animation: none; transform: scaleY(.09); transition: transform .5s cubic-bezier(.3, 1.4, .5, 1); }
+.intro-ov.gate .intro-eye:hover .ie-lidclip { transform: scaleY(.09); transition: transform .5s cubic-bezier(.3, 1.4, .5, 1); }
+.intro-ov.gate .intro-eye:hover .ie-halo { opacity: 1; }
+.intro-ov.gate .intro-eye:hover ~ .intro-gate .ig-text { color: #fff; text-shadow: 0 0 24px rgba(170, 200, 255, .95); }
+/* nach dem Klick: Auge gedimmt, während die Zeilen flüstern */
+.intro-ov.play .intro-eye { opacity: .14; }
+.intro-ov.play.eye .intro-eye { opacity: 1; }
 .intro-ov.gate .intro-gate { opacity: 1; animation: fadeIn 2.4s; }
 .ig-eye { width: min(320px, 60vw); height: 40px; position: relative; display: grid; place-items: center; }
 .ig-eye::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 2px; transform: translateY(-50%); background: linear-gradient(90deg, transparent, #e8eefc 30%, #fff 50%, #e8eefc 70%, transparent); box-shadow: 0 0 16px rgba(160, 190, 255, .9), 0 0 40px rgba(120, 150, 255, .5); animation: slitBreath 3.2s ease-in-out infinite; }

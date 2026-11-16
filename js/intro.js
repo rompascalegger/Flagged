@@ -108,7 +108,8 @@
         el.classList.remove('gate');
         this.sequence();
       };
-      el.addEventListener('click', begin);
+      // nur ein Klick auf das Auge weckt es
+      $('.intro-eye', el).addEventListener('click', begin);
       try { el.focus({ preventScroll: true }); } catch (e) { }
       $('#intro-skip').addEventListener('click', (e) => { e.stopPropagation(); this.finish(true); });
       document.addEventListener('keydown', this._key = (e) => { if (!this.active) return; if (e.key === 'Escape') this.finish(true); else if (el.classList.contains('gate') && (e.key === 'Enter' || e.key === ' ')) begin(); });
